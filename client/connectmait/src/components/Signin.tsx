@@ -1,8 +1,38 @@
 import { TextField } from "@mui/material";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState, ChangeEvent } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { z } from "zod";
+const schema = z.object({
+  username: z.string().min(3),
+  password: z.string().min(6),
+  email: z.string().email("invalid email format"),
+});
 
-export default function Signin() {
+export default function Signup() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPass] = useState("");
+  const [username, setUsername] = useState("");
+  async function loginAccount() {
+    const postData = { username, email, password };
+    const data = schema.parse(postData);
+
+    try {
+      const response = await axios.post("http://localhost:3000/signin", data);
+      if (response && response.data) {
+        localStorage.setItem("token", response.data.token);
+        console.log(response.data);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      throw error;
+    }
+  }
+
   return (
     <>
       <div className="flex flex-row h-screen justify-center">
@@ -13,7 +43,7 @@ export default function Signin() {
             className="w-[50px] h-[50px] ml-4 mt-[32px]"
           />
           <p className="text-md font-semi-bold mt-4 ml-4">
-            Sign-In to your Account
+            Login to Your Account
           </p>
           <p className="text-[#656565] ml-4 mt-2">
             to continue to Mait-connect
@@ -26,8 +56,11 @@ export default function Signin() {
               id="outlined-basic"
               label=""
               variant="outlined"
-              placeholder="Username"
+              placeholder="Username (minimum 3 lettered)"
               className="w-full h-full"
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setUsername(e.target.value)
+              }
             />
           </div>
           <p className="font-semi-bold text-[#656565] text-md ml-4 mt-16">
@@ -40,6 +73,9 @@ export default function Signin() {
               variant="outlined"
               placeholder="someone@example.com"
               className="w-full h-full"
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                setEmail(e.target.value);
+              }}
             />
           </div>
           <p className="font-semi-bold mt-16 ml-4 text-[#656565]">Password</p>
@@ -50,11 +86,18 @@ export default function Signin() {
               variant="outlined"
               placeholder="password"
               className="w-full h-full"
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                setPass(e.target.value);
+              }}
             />
           </div>
-          <div className="mt-16 ml-32">
-            <Button variant="outline" className="bg-black text-white">
-              Login
+          <div className="mt-16 ml-24">
+            <Button
+              variant="outline"
+              className="bg-black text-white"
+              onClick={loginAccount}
+            >
+              Create Account
             </Button>
           </div>
           <p className="text-[#656565] font-sm mt-4 ml-4">

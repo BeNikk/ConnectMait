@@ -22,6 +22,10 @@ function handleSignup(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const { username, email, password } = req.body;
+            const existingUser = yield UserSignin_1.UserModel.findOne({ "email": email });
+            if (existingUser) {
+                res.json({ "message": "user already exists" });
+            }
             const user = new UserSignin_1.UserModel({ username, email, password });
             const savedUser = yield user.save();
             const payload = { userId: savedUser._id };

@@ -8,11 +8,18 @@ app.use(express.json());
 const Secret='mysdcwdfr';
 export default async function handleSignup(req:Request,res:Response){
     try{
+        
 
         const {username,email,password}=req.body;
+        const existingUser=await UserModel.findOne({"email":email});
+        if(existingUser){
+            res.json({"message":"user already exists"});
+        }
         const user=new UserModel({username,email,password});
         const savedUser=await user.save();
         const payload={userId:savedUser._id};
+
+
         const token=jwt.sign(payload,Secret,{expiresIn:'24h'});
 
         
