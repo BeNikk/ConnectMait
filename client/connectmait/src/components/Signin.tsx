@@ -1,5 +1,6 @@
 import { TextField } from "@mui/material";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export default function Signin() {
   return (
@@ -56,6 +57,12 @@ export default function Signin() {
               Login
             </Button>
           </div>
+          <p className="text-[#656565] font-sm mt-4 ml-4">
+            Don't have an account?{" "}
+            <Link to="/signup" className="text-black font-semi-bold">
+              Signup
+            </Link>
+          </p>
         </div>
       </div>
     </>
