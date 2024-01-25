@@ -13,7 +13,7 @@ export default async function handleSignup(req:Request,res:Response){
         const user=new UserModel({username,email,password});
         const savedUser=await user.save();
         const payload={userId:savedUser._id};
-        const token=jwt.sign(payload,Secret);
+        const token=jwt.sign(payload,Secret,{expiresIn:'24h'});
 
         
         res.json({"messsge":"user created","user":savedUser,"token":token});
@@ -25,3 +25,4 @@ export default async function handleSignup(req:Request,res:Response){
         res.json({"some error occured":error});
     }
 }
+
