@@ -3,32 +3,27 @@ import { Textarea } from "@/components/ui/textarea";
 export default function Mainfeed() {
   return (
     <>
-      <div className="hidden lg:flex w-[1000px] h-36 fixed flex flex-col bg-[#101117] ml-[20%] mt-12">
-        <p className="text-white font-semi-bold text-xl ml-4 mt-2">
-          What is happening?
+      <div className="relative flex flex-col items-center w-[80vw] bg-[#101117]   hover:rounded-lg hover:border hover:border-white mt-4 ml-[10vw] h-[200px] lg:w-[40vw] lg:ml-[30vw]">
+        <p className="font-bold mt-2 text-lg text-white lg:hidden">
+          Welcome to Mait connect!
         </p>
-        <div className="w-[700px]">
+
+        <p className="font-bold mt-2 text-lg text-white lg:mb-8">
+          What is happening!?
+        </p>
+        <div className="object-contain overflow-hidden mt-4 mr-[5%] w-[450px]">
           <Textarea
-            className="mt-4 ml-32 text-white w-full"
+            className="ml-[10%]  text-white w-[80%]"
             placeholder="Write your mind"
           />
-
-          <img src="/create.svg" alt="add photos" className="ml-4" />
-        </div>
-        <Button className="absolute right-12 bottom-2 mt-4">Post</Button>
-      </div>
-      <div className="relative w-[70%] h-44 mt-[2%] ml-[10%] bg-[#101117] lg:hidden">
-        <p className="text-white font-semi-bold text-xl ml-4 mt-2">
-          What is happening?
-        </p>
-
-        <div className="w-[70%] h-[70%]">
-          <Textarea
-            placeholder="write your mind"
-            className="ml-12 mb-4 mt-4 text-white"
+          <Button className="absolute right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4">
+            Post
+          </Button>
+          <img
+            src="/create.svg"
+            alt="photo-image"
+            className="absolute left-8 bottom-3 lg:right-8 bottom-4"
           />
-          <Button className="absolute right-12 bottom-2">Post</Button>
-          <img src="/create.svg" alt="" className="absolute left-4 bottom-4" />
         </div>
       </div>
     </>
