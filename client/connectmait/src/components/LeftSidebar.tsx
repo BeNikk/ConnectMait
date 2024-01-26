@@ -5,7 +5,9 @@ export default function LeftSidebar() {
     <>
       <div className="hidden lg:block ">
         <div className="fixed inset-y-16 left-0  bg-[#101117] w-[20vw] h-full">
-          <p className="text-white font-bold text-2xl ml-[20%]">Mait-Connect</p>
+          <p className="text-[#7F75EC] font-bold text-2xl ml-[20%]">
+            Mait-Connect
+          </p>
           <div className="flex flex-col  justify-evenly">
             <Link to="/" className="mb-4">
               <div className=" flex flex-row items-center mt-16 ml-[20%] ">
