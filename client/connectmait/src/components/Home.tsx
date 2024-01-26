@@ -1,11 +1,17 @@
 import LeftSidebar from "./LeftSidebar";
+import Mainfeed from "./Mainfeed";
+import RightSidebar from "./RightSidebar";
 import Topbar from "./Topbar";
 
 export default function Home() {
   return (
     <>
       <Topbar />
-      <LeftSidebar />
+      <div className="flex flex-row">
+        <LeftSidebar />
+        <Mainfeed />
+        <RightSidebar />
+      </div>
     </>
   );
 }
