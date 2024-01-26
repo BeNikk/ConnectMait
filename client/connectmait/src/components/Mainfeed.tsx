@@ -70,12 +70,12 @@ export default function Mainfeed() {
         {feed &&
           feed.map((f) => {
             return (
-              <div className="relative ml-[10vw] mt-14 bg-[#101117] h-44 w-[40vw] lg:w-[40vw] lg:ml-[30vw]">
-                <p className="absolute left-2 top-2 mb-4 text-white">
+              <div className="relative ml-[10vw] mt-14 bg-[#101117] h-44 w-[80vw] lg:w-[40vw] lg:ml-[30vw]">
+                <p className="absolute font-bold left-4 top-2 mb-4 text-[#7F75EC]">
                   {f.userId.username}
                 </p>
 
-                <p className="absolute left-2 bottom-24 text-white">
+                <p className="overflow-hidden absolute left-4 bottom-24 text-white">
                   {f.postContent}{" "}
                 </p>
               </div>
