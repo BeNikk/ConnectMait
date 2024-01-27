@@ -47,7 +47,7 @@ export default function Mainfeed() {
           </p>
 
           <p className="font-bold mt-2 text-lg text-white lg:mb-8">
-            What is happening!?
+            Write Your Mind
           </p>
           <div
             className="object-contain overflow-hidden mt-4 mr-[5%] w-[450px]"
@@ -57,7 +57,7 @@ export default function Mainfeed() {
           >
             <Textarea
               className="bg-[#101117] ml-[10%] text-white h-[40%] w-[80%]"
-              placeholder="Write your mind"
+              placeholder="Write"
             />
             <Button
               className="absolute bg-[#7F75EC] right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4"
@@ -78,6 +78,16 @@ export default function Mainfeed() {
                 <p className="overflow-hidden absolute left-4 bottom-24 text-white">
                   {f.postContent}{" "}
                 </p>
+                <img
+                  src="/heart-gray.svg"
+                  alt=""
+                  className="absolute left-4 bottom-4"
+                />
+                <img
+                  src="/reply.svg"
+                  alt=""
+                  className="absolute ml-4 left-8 bottom-4"
+                />
               </div>
             );
           })}

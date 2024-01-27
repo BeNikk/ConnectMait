@@ -5,7 +5,7 @@ export default function LeftSidebar() {
     <>
       <div className="hidden lg:block ">
         <div className="fixed inset-y-16 left-0  bg-black w-[20vw] h-full">
-          <p className="text-[#7F75EC] font-bold text-2xl ml-[20%]">
+          <p className="text-[#2096b2] font-bold text-2xl ml-[20%]">
             Mait-Connect
           </p>
           <div className="flex flex-col  justify-evenly">
