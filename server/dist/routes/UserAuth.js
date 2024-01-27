@@ -9,4 +9,6 @@ const handleSignin_1 = __importDefault(require("../controllers/handleSignin"));
 const router = express_1.default.Router();
 router.post('/signup', handleSignup_1.default);
 router.post('/signin', handleSignin_1.default);
+router.post('/uploadfile');
+router.get('/user/:id');
 exports.default = router;

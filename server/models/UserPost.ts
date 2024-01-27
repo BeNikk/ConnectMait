@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+
+
 const postData = new mongoose.Schema(
     {
       postContent: {
@@ -8,10 +10,9 @@ const postData = new mongoose.Schema(
       },
       likes:[{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
       comments: [{
-        userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-        comment: String,
-        createdAt: { type: Date, default: Date.now }
-    }],
+        text: String,
+        postedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+      }],
       userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

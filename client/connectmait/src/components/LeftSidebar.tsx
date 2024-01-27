@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function LeftSidebar() {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="hidden lg:block ">
@@ -8,9 +11,9 @@ export default function LeftSidebar() {
           <p className="text-[#2096b2] font-bold text-2xl ml-[20%]">
             Mait-Connect
           </p>
-          <div className="flex flex-col  justify-evenly">
+          <div className="flex flex-col justify-evenly">
             <Link to="/" className="mb-4">
-              <div className=" flex flex-row items-center mt-16 ml-[20%] ">
+              <div className=" flex flex-row items-center mt-16 ml-[20%] cursor-pointer ">
                 <img src="/home.svg" alt="" />
                 <p className="font-bold text-xl text-white ml-[5%]">Home</p>
               </div>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ChangeEvent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 interface User {
   _id: string;
@@ -13,6 +14,7 @@ interface Post {
 }
 
 export default function Mainfeed() {
+  const navigate = useNavigate();
   const [postContent, setPosts] = useState("");
   const [feed, setFeed] = useState<Post[]>([]);
 
@@ -60,7 +62,7 @@ export default function Mainfeed() {
               placeholder="Write"
             />
             <Button
-              className="absolute bg-[#7F75EC] right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4"
+              className="absolute bg-[#2096b2] right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4"
               onClick={Post}
             >
               Post
@@ -70,8 +72,14 @@ export default function Mainfeed() {
         {feed &&
           feed.map((f) => {
             return (
-              <div className="relative ml-[10vw] mt-14 bg-[#101117] h-44 w-[80vw] lg:w-[40vw] lg:ml-[30vw]">
-                <p className="absolute font-bold left-4 top-2 mb-4 text-[#7F75EC]">
+              <div
+                className="relative ml-[10vw] mt-14 bg-[#101117] h-44 w-[80vw] lg:w-[40vw] lg:ml-[30vw]"
+                key={f._id}
+              >
+                <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#2096b2] text-white flex items-center justify-center">
+                  {f.userId.username[0].toUpperCase()}
+                </div>
+                <p className="absolute font-bold left-12 top-4 mb-4 text-[#2096b2]">
                   {f.userId.username}
                 </p>
 
@@ -83,11 +91,18 @@ export default function Mainfeed() {
                   alt=""
                   className="absolute left-4 bottom-4"
                 />
-                <img
-                  src="/reply.svg"
-                  alt=""
-                  className="absolute ml-4 left-8 bottom-4"
-                />
+                <div
+                  className="cursor-pointer hover:bg-[#2096b2]"
+                  onClick={() => {
+                    navigate(`/comment/${f._id}`);
+                  }}
+                >
+                  <img
+                    src="/reply.svg"
+                    alt=""
+                    className="absolute ml-4 left-8 bottom-4"
+                  />
+                </div>
               </div>
             );
           })}
