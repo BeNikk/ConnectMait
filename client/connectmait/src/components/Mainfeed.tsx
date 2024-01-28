@@ -16,6 +16,7 @@ interface Post {
 export default function Mainfeed() {
   const navigate = useNavigate();
   const [postContent, setPosts] = useState("");
+
   const [feed, setFeed] = useState<Post[]>([]);
 
   useEffect(() => {
@@ -62,7 +63,7 @@ export default function Mainfeed() {
               placeholder="Write"
             />
             <Button
-              className="absolute bg-[#2096b2] right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4"
+              className="absolute bg-[#1A8CD8] right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4"
               onClick={Post}
             >
               Post
@@ -76,10 +77,10 @@ export default function Mainfeed() {
                 className="relative ml-[10vw] mt-14 bg-[#101117] h-44 w-[80vw] lg:w-[40vw] lg:ml-[30vw]"
                 key={f._id}
               >
-                <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#2096b2] text-white flex items-center justify-center">
+                <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
                   {f.userId.username[0].toUpperCase()}
                 </div>
-                <p className="absolute font-bold left-12 top-4 mb-4 text-[#2096b2]">
+                <p className="absolute font-bold left-12 top-4 mb-4 text-[#1A8CD8]">
                   {f.userId.username}
                 </p>
 

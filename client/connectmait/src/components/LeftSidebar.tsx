@@ -7,7 +7,7 @@ export default function LeftSidebar() {
     <>
       <div className="hidden lg:block ">
         <div className="fixed inset-y-16 left-0  bg-black w-[20vw] h-full">
-          <p className="text-[#2096b2] font-bold text-2xl ml-[20%]">
+          <p className="text-[#1A8CD8] font-bold text-2xl ml-[20%]">
             Mait-Connect
           </p>
           <div className="flex flex-col justify-evenly">
@@ -15,7 +15,7 @@ export default function LeftSidebar() {
               <div
                 className={`flex flex-row items-center mt-16 ml-[20%] cursor-pointer ${
                   location.pathname === "/"
-                    ? "bg-[#2096b2] h-16 w-[128px] rounded-xl"
+                    ? "bg-[#1A8CD8] h-16 w-[128px] rounded-xl"
                     : ""
                 }`}
               >
@@ -27,7 +27,7 @@ export default function LeftSidebar() {
               <div
                 className={`flex flex-row items-center mt-16 ml-[20%] cursor-pointer ${
                   location.pathname === "/search"
-                    ? "bg-[#2096b2] h-16 w-[128px] rounded-xl"
+                    ? "bg-[#1A8CD8] h-16 w-[128px] rounded-xl"
                     : ""
                 }`}
               >
@@ -39,7 +39,7 @@ export default function LeftSidebar() {
               <div
                 className={`flex flex-row items-center mt-16 ml-[20%] cursor-pointer ${
                   location.pathname === "/notifications"
-                    ? "bg-[#2096b2] h-16 w-[170px] rounded-xl"
+                    ? "bg-[#1A8CD8] h-16 w-[170px] rounded-xl"
                     : ""
                 }`}
               >
@@ -54,7 +54,7 @@ export default function LeftSidebar() {
               <div
                 className={`flex flex-row items-center mt-16 ml-[20%] cursor-pointer ${
                   location.pathname === "/profile"
-                    ? "bg-[#2096b2] h-16 w-[128px] rounded-xl"
+                    ? "bg-[#1A8CD8] h-16 w-[128px] rounded-xl"
                     : ""
                 }`}
               >
