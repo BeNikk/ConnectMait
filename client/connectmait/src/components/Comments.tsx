@@ -12,6 +12,7 @@ export default function Comments() {
   const { id } = useParams();
   console.log(id);
   const [posts, setPost] = useState("");
+
   useEffect(() => {
     console.log("control was here");
     axios
@@ -31,7 +32,7 @@ export default function Comments() {
 
       <div className="">
         <div className="relative ml-[10vw] mt-14 bg-[#101117] h-44 w-[80vw] lg:w-[40vw] lg:ml-[30vw]">
-          <p className="text-white">{posts}</p>
+          <p className="text-white absolute top-20 left-8">{posts}</p>
         </div>
       </div>
       <div className="relative flex flex-col items-center w-[80vw] bg-[#101117]   hover:rounded-lg hover:border hover:border-white mt-4 ml-[10vw] h-[200px] lg:w-[40vw] lg:ml-[30vw]">
