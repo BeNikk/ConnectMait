@@ -15,7 +15,7 @@ export default async function handleSignup(req:Request,res:Response){
         if(existingUser){
             res.json({"message":"user already exists"});
         }
-        const user=new UserModel({username,email,password});
+        const user=new UserModel({username,email,password,about:""});
         const savedUser=await user.save();
         const payload={userId:savedUser._id};
 

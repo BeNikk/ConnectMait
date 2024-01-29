@@ -26,7 +26,7 @@ function handleSignup(req, res) {
             if (existingUser) {
                 res.json({ "message": "user already exists" });
             }
-            const user = new UserSignin_1.UserModel({ username, email, password });
+            const user = new UserSignin_1.UserModel({ username, email, password, about: "" });
             const savedUser = yield user.save();
             const payload = { userId: savedUser._id };
             const token = jsonwebtoken_1.default.sign(payload, Secret, { expiresIn: '24h' });

@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
-
+const ImageSchema = new mongoose.Schema({
+  url: String,
+  contentType: String,
+});
 
 const postData = new mongoose.Schema(
     {
@@ -8,6 +11,7 @@ const postData = new mongoose.Schema(
         type: String,
         required: true,
       },
+      images: [ImageSchema],
       likes:[{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
       comments: [{
         text: String,
