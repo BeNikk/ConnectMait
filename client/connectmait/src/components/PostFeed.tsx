@@ -17,7 +17,7 @@ export default function PostFeed() {
     axios.get("http://localhost:3000/post").then((response) => {
       setFeed(response.data);
     });
-  }, []);
+  }, [feed]);
 
   return (
     <>

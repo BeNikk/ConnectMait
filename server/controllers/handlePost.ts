@@ -6,11 +6,9 @@ import { v2 as cloudinary } from 'cloudinary';
 const app = express();
 app.use(express.json());
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
 
 
-cloudinary.v2.config({
+cloudinary.config({
   cloud_name: 'dr1vasczt',
   api_key: '536431137576568',
   api_secret: 'V0fDwbALdXWQJ-GyBQC4oilvUJw',
@@ -18,42 +16,21 @@ cloudinary.v2.config({
 });
 export default async function handlePost(req: Request, res: Response) {
   try {
-    const postContent = req.body.postContent;
-    const images = req.files as Express.Multer.File[];
+    const postContent=req.body.postContent;
+    const image=req.file;
+    console.log(image);
+    res.send("hey");
+  
+    
+  }
 
-    const userId = req.headers.userId;
 
-    if (!postContent || !userId) {
-      return res.status(400).json({ message: 'Missing post content or user ID' });
-    }
+    
 
-    const uploadedImages = await Promise.all(
-      images.map(async (image) => {
-        try {
-          const result = await cloudinary.uploader.upload(image.buffer.toString('base64'), {
-            resource_type: 'auto',
-          });
 
-          if (result) {
-            return {
-              url: result.secure_url,
-              contentType: result.format,
-            };
-          } else {
-            throw new Error('Error uploading image to Cloudinary');
-          }
-        } catch (error) {
-          console.error(error);
-          throw new Error('Error uploading image to Cloudinary');
-        }
-      })
-    );
-
-    const newPost = new postModel({ postContent, userId, images: uploadedImages });
-    await newPost.save();
-
-    return res.status(201).json({ message: 'Post successfully created' });
-  } catch (error) {
+    
+  
+  catch (error) {
     console.error(error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }

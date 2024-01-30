@@ -8,8 +8,8 @@ const ImageSchema = new mongoose.Schema({
 const postData = new mongoose.Schema(
     {
       postContent: {
-        type: String,
-        required: true,
+        type: String
+        
       },
       images: [ImageSchema],
       likes:[{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],

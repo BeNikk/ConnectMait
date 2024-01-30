@@ -6,8 +6,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 const schema = z.object({
-  username: z.string().min(3),
-  password: z.string().min(6),
+  username: z.string().min(3).max(100),
+  password: z.string().min(6).max(100),
   email: z.string().email("invalid email format"),
 });
 
