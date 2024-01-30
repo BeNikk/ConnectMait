@@ -84,12 +84,18 @@ export default function Mainfeed() {
           <Button
             className="absolute bg-[#1A8CD8] right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4"
             onClick={() => {
-              const postData = { postContent: postContent };
               try {
+                const formData = new FormData();
+                formData.append("postContent", postContent);
+                if (selectedImage) {
+                  formData.append("image", selectedImage);
+                }
+
                 axios
-                  .post("http://localhost:3000/addPost", postData, {
+                  .post("http://localhost:3000/addPost", formData, {
                     headers: {
                       Authorization: localStorage.getItem("token"),
+                      "Content-Type": "multipart/form-data",
                     },
                   })
                   .then(() => {

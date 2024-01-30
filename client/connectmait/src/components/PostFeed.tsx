@@ -8,16 +8,43 @@ interface User {
 interface Post {
   _id: string;
   postContent: string;
+  image: string;
   userId: User;
 }
+interface LightboxProps {
+  image: string;
+  onClose: () => void;
+}
+const Lightbox = ({ image, onClose }: LightboxProps) => {
+  return (
+    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-75 z-50">
+      <img src={image} alt="Selected Image" className="max-w-full max-h-full" />
+      <button
+        className="absolute top-4 right-4 p-2 text-white bg-[#1A8CD8] rounded-lg"
+        onClick={onClose}
+      >
+        Close
+      </button>
+    </div>
+  );
+};
+
 export default function PostFeed() {
   const navigate = useNavigate();
   const [feed, setFeed] = useState<Post[]>([]);
+
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+
+  function closeLightbox() {
+    setLightboxImage(null);
+  }
+
   useEffect(() => {
     axios.get("http://localhost:3000/post").then((response) => {
       setFeed(response.data);
+      console.log(response.data);
     });
-  }, [feed]);
+  }, []);
 
   return (
     <>
@@ -26,7 +53,15 @@ export default function PostFeed() {
           return (
             <>
               <div
-                className="relative ml-[10vw] mt-14 bg-[#101117] h-44 w-[80vw] lg:w-[40vw] lg:ml-[30vw]"
+                className={`relative flex flex-col ml-[10vw] mt-14 mb-12 bg-[#101117] rounded-lg w-[80vw] lg:w-[40vw] lg:ml-[30vw]  ${
+                  f.image
+                    ? "min-h-[40rem] lg:min-h-[40rem]"
+                    : "min-h-40 lg:min-h-40"
+                } ${
+                  f.postContent && f.postContent.length > 100
+                    ? "min-h-[50rem] lg:min-h-[40rem]"
+                    : "min-h-50 lg:min-h-40"
+                }`}
                 key={f._id}
               >
                 <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
@@ -36,9 +71,20 @@ export default function PostFeed() {
                   {f.userId.username}
                 </p>
 
-                <p className="overflow-hidden absolute left-4 bottom-24 text-white">
+                <p className="overflow-truncate absolute left-4 top-12 text-white mb-8">
                   {f.postContent}{" "}
                 </p>
+                {f.image && (
+                  <img
+                    src={f.image}
+                    alt=""
+                    className="absolute top-24 object-cover"
+                    onClick={() => {
+                      setLightboxImage(f.image);
+                    }}
+                  />
+                )}
+
                 <img
                   src="/heart-gray.svg"
                   alt=""
@@ -56,6 +102,9 @@ export default function PostFeed() {
                     className="absolute ml-4 left-8 bottom-4"
                   />
                 </div>
+                {lightboxImage && (
+                  <Lightbox image={lightboxImage} onClose={closeLightbox} />
+                )}
               </div>
             </>
           );

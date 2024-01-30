@@ -7,18 +7,29 @@ import RightSidebar from "./RightSidebar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ChangeEvent } from "react";
+import { imageListClasses } from "@mui/material";
+interface User {
+  _id: string;
+  username: string;
+}
+interface Post {
+  _id: string;
+  postContent: string;
+  image: string;
+  userId: User;
+}
 
 export default function Comments() {
   const { id } = useParams();
-  console.log(id);
-  const [posts, setPost] = useState("");
+  const [feed, setFeed] = useState<Post>();
 
   useEffect(() => {
     console.log("control was here");
     axios
       .get(`http://localhost:3000/post/${id}`)
       .then((res) => {
-        setPost(res.data.postContent);
+        console.log(res.data);
+        setFeed(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -31,10 +42,35 @@ export default function Comments() {
       <LeftSidebar />
 
       <div className="">
-        <div className="relative ml-[10vw] mt-14 bg-[#101117] h-44 w-[80vw] lg:w-[40vw] lg:ml-[30vw]">
-          <p className="text-white absolute top-20 left-8">{posts}</p>
-        </div>
+        {feed && (
+          <div
+            className={`relative flex flex-col ml-[10vw] mt-14 mb-12 bg-[#101117] rounded-lg w-[80vw] lg:w-[40vw] lg:ml-[30vw]  ${
+              feed.image
+                ? "min-h-[40rem] lg:min-h-[40rem]"
+                : "min-h-40 lg:min-h-40"
+            } ${
+              feed.postContent && feed.postContent.length > 100
+                ? "min-h-[50rem] lg:min-h-[40rem]"
+                : "min-h-50 lg:min-h-40"
+            }`}
+            key={feed._id}
+          >
+            {feed && (
+              <p className="text-white absolute top-20 left-8">
+                {feed.postContent}
+              </p>
+            )}
+            {feed.image && (
+              <img
+                src={feed.image}
+                alt=""
+                className="absolute top-28 object-cover"
+              />
+            )}
+          </div>
+        )}
       </div>
+
       <div className="relative flex flex-col items-center w-[80vw] bg-[#101117]   hover:rounded-lg hover:border hover:border-white mt-4 ml-[10vw] h-[200px] lg:w-[40vw] lg:ml-[30vw]">
         <p className="font-bold mt-2 text-lg text-white lg:hidden">Comment!</p>
 
