@@ -22,6 +22,7 @@ interface Post {
 export default function Comments() {
   const { id } = useParams();
   const [feed, setFeed] = useState<Post>();
+  const [comment, setComment] = useState("");
 
   useEffect(() => {
     console.log("control was here");
@@ -79,13 +80,35 @@ export default function Comments() {
         </p>
         <div
           className="object-contain overflow-hidden mt-4 mr-[5%] w-[450px]"
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {}}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setComment(e.target.value);
+          }}
         >
           <Textarea
             className="bg-[#101117] ml-[10%] text-white h-[40%] w-[80%]"
             placeholder="Write"
           />
-          <Button className="absolute bg-[#2096b2] right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4">
+          <Button
+            className="absolute bg-[#1A8CD8] right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4"
+            onClick={() => {
+              axios
+                .post(
+                  `http://localhost:3000/posts/comments/${id}`,
+                  { text: comment },
+                  {
+                    headers: {
+                      Authorization: localStorage.getItem("token"),
+                    },
+                  }
+                )
+                .then(() => {
+                  alert("comment added");
+                })
+                .catch((e) => {
+                  console.log("some error occured", e);
+                });
+            }}
+          >
             comment!
           </Button>
         </div>

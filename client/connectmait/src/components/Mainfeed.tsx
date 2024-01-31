@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useState } from "react";
 import axios from "axios";
 import PostFeed from "./PostFeed";
 
@@ -54,11 +54,11 @@ export default function Mainfeed() {
             />
             <div className="mt-4">
               {selectedImage && (
-                <div className="relative inline-block mr-2 mb-2">
+                <div className="relative ml-[10%] inline-block mr-2 mb-2">
                   <img
                     src={URL.createObjectURL(selectedImage)}
                     alt="Selected Image"
-                    className="w-64 h-64 object-contain cursor-pointer"
+                    className="w-72 h-72 object-contain cursor-pointer"
                     onClick={() => {
                       if (selectedImage) {
                         setLightboxImage(URL.createObjectURL(selectedImage));
@@ -90,18 +90,25 @@ export default function Mainfeed() {
                 if (selectedImage) {
                   formData.append("image", selectedImage);
                 }
-
-                axios
-                  .post("http://localhost:3000/addPost", formData, {
-                    headers: {
-                      Authorization: localStorage.getItem("token"),
-                      "Content-Type": "multipart/form-data",
-                    },
-                  })
-                  .then(() => {
-                    alert("post added");
-                    setPosts("");
-                  });
+                if (postContent == "" && selectedImage == null) {
+                  alert("add content");
+                } else {
+                  axios
+                    .post("http://localhost:3000/addPost", formData, {
+                      headers: {
+                        Authorization: localStorage.getItem("token"),
+                        "Content-Type": "multipart/form-data",
+                      },
+                    })
+                    .then(() => {
+                      alert("post added");
+                      setPosts("");
+                      setSelectedImage(null);
+                    })
+                    .catch((e) => {
+                      console.log("some error occured", e);
+                    });
+                }
               } catch (error) {
                 console.log("error", error);
               }

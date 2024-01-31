@@ -23,7 +23,7 @@ const upload = multer({ storage: storage });
 const router=express.Router();
 
 router.post('/addPost',UserAuth,upload.single('image'),handlePost);
-router.post('/posts/:postId/comments',UserAuth,handleComment);
+router.post('/posts/comments/:postId',UserAuth,handleComment);
 
 router.get('/post',getPost);
 router.get('/getuser',getUser);

@@ -42,9 +42,8 @@ export default function PostFeed() {
   useEffect(() => {
     axios.get("http://localhost:3000/post").then((response) => {
       setFeed(response.data);
-      console.log(response.data);
     });
-  }, []);
+  }, [feed]);
 
   return (
     <>
@@ -88,7 +87,7 @@ export default function PostFeed() {
                 <img
                   src="/heart-gray.svg"
                   alt=""
-                  className="absolute left-4 bottom-4"
+                  className="absolute right-40 bottom-4 w-8"
                 />
                 <div
                   className="cursor-pointer hover:bg-[#2096b2]"
@@ -99,7 +98,7 @@ export default function PostFeed() {
                   <img
                     src="/reply.svg"
                     alt=""
-                    className="absolute ml-4 left-8 bottom-4"
+                    className="absolute ml-4 left-8 bottom-4 w-8"
                   />
                 </div>
                 {lightboxImage && (
