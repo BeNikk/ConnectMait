@@ -7,6 +7,7 @@ import Comments from "./components/Comments";
 import SearchPage from "./components/SearchPage";
 import Notifications from "./components/Notifications";
 import ProfilePage from "./components/ProfilePage";
+import OtherProfile from "./components/OtherProfile";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route
+              path="/otherProfile/:otherUserName"
+              element={<OtherProfile />}
+            />
           </Routes>
         </Router>
         sss

@@ -7,6 +7,7 @@ import handleComment from "../controllers/handleComment";
 import getPostById from "../controllers/getPostById";
 import multer from 'multer';
 import getComments from "../controllers/getComments";
+import getOtherUser from "../controllers/getOtherUser";
 
 
 const storage = multer.diskStorage({
@@ -30,4 +31,5 @@ router.get('/post',getPost);
 router.get('/getuser',getUser);
 router.get('/post/:id',getPostById);
 router.get('/post/comment/:postId',getComments);
+router.get('/otherProfile/:otherUserName',getOtherUser);
 export default router;

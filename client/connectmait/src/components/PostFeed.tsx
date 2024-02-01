@@ -43,7 +43,7 @@ export default function PostFeed() {
     axios.get("http://localhost:3000/post").then((response) => {
       setFeed(response.data);
     });
-  }, [feed]);
+  }, []);
 
   return (
     <>
@@ -66,7 +66,12 @@ export default function PostFeed() {
                 <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
                   {f.userId.username[0].toUpperCase()}
                 </div>
-                <p className="absolute font-bold left-12 top-4 mb-4 text-[#1A8CD8]">
+                <p
+                  className="absolute font-bold left-12 top-4 mb-4 text-[#1A8CD8] cursor-pointer"
+                  onClick={() => {
+                    navigate(`/otherProfile/${f.userId.username}`);
+                  }}
+                >
                   {f.userId.username}
                 </p>
 

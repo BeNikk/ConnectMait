@@ -2,18 +2,20 @@ import { Request, Response } from "express";
 import { UserModel } from "../models/UserSignin";
 
 export default async function getOtherUser(req:Request,res:Response){
+    const otherUsername=req.params.otherUserName;
+    
     try{
-        const otherUserId=req.params.userId;
-        const user=await UserModel.findOne({_id:otherUserId});
-        if(user){
-            res.json({user});
+        const user=await UserModel.findOne({username:otherUsername});
+        if(!user){
+            res.json({message:"user not found"});
         }
         else{
-            res.json({message:"user not found"});
+            res.json({username:user.username,email:user.email});
+
         }
 
 
     }catch(e){
-        res.json({message:"some error",e});
+        res.json({message:"some error",error:e});
     }
 }
