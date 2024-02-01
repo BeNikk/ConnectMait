@@ -1,10 +1,8 @@
-import express, {Request,Response} from 'express';
+import {Request,Response} from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-const app=express();
 const Secret='mysdcwdfr';
 
-app.use(express.json());
 import { UserModel } from '../models/UserSignin';
 export default async function handleSignin(req:Request,res:Response){
     const { username, password } = req.body;

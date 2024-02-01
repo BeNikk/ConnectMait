@@ -8,6 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ChangeEvent } from "react";
 import CommentFeed from "./CommentFeed";
+interface Comment {
+  _id: string;
+  text?: string;
+  postedBy: User;
+}
 interface User {
   _id: string;
   username: string;
@@ -17,6 +22,7 @@ interface Post {
   postContent: string;
   image: string;
   userId: User;
+  comments: Comment[];
 }
 
 export default function Comments() {
@@ -41,7 +47,6 @@ export default function Comments() {
     <>
       <Topbar />
       <LeftSidebar />
-
       <div className="">
         {feed && (
           <div
@@ -79,7 +84,6 @@ export default function Comments() {
           </div>
         )}
       </div>
-
       <div className="relative flex flex-col items-center w-[80vw] bg-[#101117]   hover:rounded-lg hover:border hover:border-white mt-4 ml-[10vw] h-[200px] lg:w-[40vw] lg:ml-[30vw]">
         <p className="font-bold mt-2 text-lg text-white lg:hidden">Comment!</p>
 
@@ -127,9 +131,8 @@ export default function Comments() {
           </Button>
         </div>
       </div>
-
       <RightSidebar />
-      <CommentFeed />
+      {id && <CommentFeed id={id} />}
     </>
   );
 }

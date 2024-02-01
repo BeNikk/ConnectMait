@@ -4,7 +4,6 @@ import { postModel } from "../models/UserPost";
 export default async function getPostById(req:Request,res:Response){
     try{
         const postId=req.params.id;
-        console.log(postId)
 
         const post=await postModel.findById(postId).populate("userId");
         if(!post){

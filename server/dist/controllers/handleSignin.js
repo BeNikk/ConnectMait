@@ -12,11 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const app = (0, express_1.default)();
 const Secret = 'mysdcwdfr';
-app.use(express_1.default.json());
 const UserSignin_1 = require("../models/UserSignin");
 function handleSignin(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
