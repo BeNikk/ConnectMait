@@ -78,7 +78,7 @@ export default function Comments() {
               <img
                 src={feed.image}
                 alt=""
-                className="absolute top-28 object-cover"
+                className="absolute left-16 top-28 object-cover w-3/4 h-3/4"
               />
             )}
           </div>

@@ -82,7 +82,7 @@ export default function PostFeed() {
                   <img
                     src={f.image}
                     alt=""
-                    className="absolute top-24 object-cover"
+                    className="absolute left-16 top-24 object-cover w-3/4 h-3/4"
                     onClick={() => {
                       setLightboxImage(f.image);
                     }}
