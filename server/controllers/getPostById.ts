@@ -6,7 +6,7 @@ export default async function getPostById(req:Request,res:Response){
         const postId=req.params.id;
         console.log(postId)
 
-        const post=await postModel.findById(postId);
+        const post=await postModel.findById(postId).populate("userId");
         if(!post){
             res.json({message:"no post by this id"});
 

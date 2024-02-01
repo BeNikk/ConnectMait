@@ -57,7 +57,7 @@ export default function PostFeed() {
                     ? "min-h-[40rem] lg:min-h-[40rem]"
                     : "min-h-40 lg:min-h-40"
                 } ${
-                  f.postContent && f.postContent.length > 100
+                  f.postContent && f.postContent.length > 65
                     ? "min-h-[50rem] lg:min-h-[40rem]"
                     : "min-h-50 lg:min-h-40"
                 }`}

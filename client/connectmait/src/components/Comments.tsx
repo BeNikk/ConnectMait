@@ -7,7 +7,7 @@ import RightSidebar from "./RightSidebar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ChangeEvent } from "react";
-import { imageListClasses } from "@mui/material";
+import CommentFeed from "./CommentFeed";
 interface User {
   _id: string;
   username: string;
@@ -50,16 +50,24 @@ export default function Comments() {
                 ? "min-h-[40rem] lg:min-h-[40rem]"
                 : "min-h-40 lg:min-h-40"
             } ${
-              feed.postContent && feed.postContent.length > 100
+              feed.postContent && feed.postContent.length > 65
                 ? "min-h-[50rem] lg:min-h-[40rem]"
                 : "min-h-50 lg:min-h-40"
             }`}
             key={feed._id}
           >
             {feed && (
-              <p className="text-white absolute top-20 left-8">
-                {feed.postContent}
-              </p>
+              <div>
+                <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
+                  {feed.userId.username[0].toUpperCase()}
+                </div>
+                <p className="absolute font-bold left-12 top-4 mb-4 text-[#1A8CD8]">
+                  {feed.userId.username}
+                </p>{" "}
+                <p className="text-white absolute top-20 left-8">
+                  {feed.postContent}
+                </p>
+              </div>
             )}
             {feed.image && (
               <img
@@ -91,29 +99,37 @@ export default function Comments() {
           <Button
             className="absolute bg-[#1A8CD8] right-4 bottom-2 lg:absolute lg:right-8 lg:bottom-4"
             onClick={() => {
-              axios
-                .post(
-                  `http://localhost:3000/posts/comments/${id}`,
-                  { text: comment },
-                  {
-                    headers: {
-                      Authorization: localStorage.getItem("token"),
-                    },
-                  }
-                )
-                .then(() => {
-                  alert("comment added");
-                })
-                .catch((e) => {
-                  console.log("some error occured", e);
-                });
+              if (comment == "") {
+                alert("add comment!");
+              } else {
+                const PostData = { text: comment };
+                axios
+                  .post(
+                    `http://localhost:3000/posts/comments/${id}`,
+                    PostData,
+                    {
+                      headers: {
+                        Authorization: localStorage.getItem("token"),
+                        "Content-Type": "application/json",
+                      },
+                    }
+                  )
+                  .then(() => {
+                    alert("comment added");
+                  })
+                  .catch((e) => {
+                    console.log("some error occured", e);
+                  });
+              }
             }}
           >
             comment!
           </Button>
         </div>
       </div>
+
       <RightSidebar />
+      <CommentFeed />
     </>
   );
 }

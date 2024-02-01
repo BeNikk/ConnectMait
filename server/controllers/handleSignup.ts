@@ -1,10 +1,8 @@
 
-import express, {Request,Response} from 'express';
+import {Request,Response} from 'express';
 
 import { UserModel } from '../models/UserSignin';
 import jwt from 'jsonwebtoken';
-const app=express();
-app.use(express.json());
 const Secret='mysdcwdfr';
 export default async function handleSignup(req:Request,res:Response){
     try{
