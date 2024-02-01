@@ -40,7 +40,7 @@ export default function Mainfeed() {
           </p>
 
           <p className="font-bold mt-2 text-lg text-white lg:mb-8">
-            Write Your Mind
+            Write your mind
           </p>
           <div
             className="object-contain overflow-hidden mt-4 mr-[5%] w-[450px]"
