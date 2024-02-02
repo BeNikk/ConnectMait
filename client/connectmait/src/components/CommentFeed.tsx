@@ -46,9 +46,10 @@ export default function CommentFeed({ id }: id) {
                   <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
                     {f.postedBy.username[0].toUpperCase()}
                   </div>
+                  {f.postedBy.username && <div>
                   <p className="absolute font-bold left-12 top-4 mb-4 text-[#1A8CD8]">
                     {f.postedBy.username}
-                  </p>
+                  </p></div>}
 
                   <p className="absolute top-20 left-4 text-white font-bold mb-8 mt-4 ">
                     {f.text}
