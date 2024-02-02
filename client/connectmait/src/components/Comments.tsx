@@ -120,9 +120,8 @@ export default function Comments() {
                   )
                   .then(() => {
                     alert("comment added");
-                    setComment("");
-
                     window.location.reload();
+
                   })
                   .catch((e) => {
                     console.log("some error occured", e);
