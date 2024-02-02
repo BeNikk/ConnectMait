@@ -35,13 +35,12 @@ export default function Comments() {
     axios
       .get(`https://connect-mait.vercel.app/post/${id}`)
       .then((res) => {
-        console.log(res.data);
         setFeed(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [feed]);
 
   return (
     <>
