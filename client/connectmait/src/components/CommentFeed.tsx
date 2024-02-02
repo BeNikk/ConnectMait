@@ -19,7 +19,7 @@ export default function CommentFeed({ id }: id) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/post/comment/${id}`)
+      .get(`https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/comment/${id}`)
       .then((res) => {
         setComment(res.data);
         console.log(res.data);
