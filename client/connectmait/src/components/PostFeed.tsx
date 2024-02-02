@@ -32,6 +32,7 @@ const Lightbox = ({ image, onClose }: LightboxProps) => {
 export default function PostFeed() {
   const navigate = useNavigate();
   const [feed, setFeed] = useState<Post[]>([]);
+  const [like, setLike] = useState(false);
 
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
@@ -61,7 +62,6 @@ export default function PostFeed() {
                     ? "min-h-[50rem] lg:min-h-[40rem]"
                     : "min-h-50 lg:min-h-40"
                 }`}
-                key={f._id}
               >
                 <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
                   {f.userId.username[0].toUpperCase()}
@@ -93,7 +93,11 @@ export default function PostFeed() {
                   src="/heart-gray.svg"
                   alt=""
                   className="absolute right-40 bottom-4 w-8"
+                  onClick={() => {
+                    setLike(!like);
+                  }}
                 />
+
                 <div
                   className="cursor-pointer hover:bg-[#2096b2]"
                   onClick={() => {

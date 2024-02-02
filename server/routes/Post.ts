@@ -27,9 +27,12 @@ const router=express.Router();
 router.post('/addPost',UserAuth,upload.single('image'),handlePost);
 router.post('/posts/comments/:postId',UserAuth,handleComment);
 
+
 router.get('/post',getPost);
 router.get('/getuser',getUser);
 router.get('/post/:id',getPostById);
 router.get('/post/comment/:postId',getComments);
 router.get('/otherProfile/:otherUserName',getOtherUser);
+
+
 export default router;
