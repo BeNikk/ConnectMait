@@ -38,7 +38,7 @@ export default function SearchPage() {
               className="absolute top-32 right-12 bg-[#1A8CD8] rounded-lg"
               onClick={() => {
                 axios
-                  .get(`https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/otherProfile/${UserName}`)
+                  .get(`https://connect-mait.vercel.app/otherProfile/${UserName}`)
                   .then((resp) => {
                     setUser(resp.data.username);
                     setUserEmail(resp.data.email);
