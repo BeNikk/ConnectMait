@@ -33,7 +33,7 @@ export default function Comments() {
   useEffect(() => {
     console.log("control was here");
     axios
-      .get(`http://localhost:3000/post/${id}`)
+      .get(`https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/post/${id}`)
       .then((res) => {
         console.log(res.data);
         setFeed(res.data);
@@ -109,7 +109,7 @@ export default function Comments() {
                 const PostData = { text: comment };
                 axios
                   .post(
-                    `http://localhost:3000/posts/comments/${id}`,
+                    `https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/posts/comments/${id}`,
                     PostData,
                     {
                       headers: {
