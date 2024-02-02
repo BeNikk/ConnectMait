@@ -12,7 +12,7 @@ export default function ProfilePage() {
   const [about, setAbout] = useState("");
   useEffect(() => {
     axios
-      .get("https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/user", {
+      .get("https://connect-mait.vercel.app/user", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
