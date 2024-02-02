@@ -41,7 +41,7 @@ export default function PostFeed() {
   }
 
   useEffect(() => {
-    axios.get("https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/post").then((response) => {
+    axios.get("https://connect-mait.vercel.app/post").then((response) => {
       setFeed(response.data);
     });
   }, []);
