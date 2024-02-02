@@ -49,7 +49,7 @@ export default function Mainfeed() {
             }}
           >
             <Textarea
-              className="bg-[#101117] ml-[10%] text-white max-h-[40%] w-[80%]"
+              className="bg-[#101117] ml-[10%] text-white max-h-[40%] w-[40%] lg:w-[80%]"
               placeholder="Write"
             />
             <div className="mt-4">
