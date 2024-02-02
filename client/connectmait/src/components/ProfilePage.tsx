@@ -3,8 +3,10 @@ import RightSidebar from "./RightSidebar";
 import Topbar from "./Topbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage() {
+  const Navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [about, setAbout] = useState("");
@@ -51,7 +53,12 @@ export default function ProfilePage() {
                 {about}
               </div>
               <div className="absolute right-4 top-4">
-                <button className="bg-[#1A8CD8] rounded-lg">
+                <button
+                  className="bg-[#1A8CD8] rounded-lg"
+                  onClick={() => {
+                    Navigate("/editProfile");
+                  }}
+                >
                   <p className="text-white font-bold p-2">Edit Profile</p>
                 </button>
               </div>

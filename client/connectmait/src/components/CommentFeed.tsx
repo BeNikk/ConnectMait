@@ -34,29 +34,27 @@ export default function CommentFeed({ id }: id) {
         {comment.map((f) => {
           return (
             <div
-              className={`relative flex flex-col ml-[10vw] mt-14 mb-12 bg-[#101117] rounded-lg w-[80vw] lg:w-[40vw] lg:ml-[30vw] ${
+              className={`relative flex flex-col ml-[10vw] h-[44px] mt-14 mb-12 bg-[#101117] rounded-lg w-[80vw] lg:w-[40vw] lg:ml-[30vw] ${
                 f.text && f.text.length > 65
                   ? "min-h-[50rem] lg:min-h-[40rem]"
                   : "min-h-50 lg:min-h-40"
-              }`}
+              } ${f.text ? "min-h-[10rem]" : "min-h-[10rem]"} `}
             >
               {" "}
-              {f.text && (
-                <div>
-                  <div>
-                    <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
-                      {f.postedBy.username[0].toUpperCase()}
-                    </div>
-                    <p className="absolute font-bold left-12 top-4 mb-4 text-[#1A8CD8]">
-                      {f.postedBy.username}
-                    </p>
+              <div>
+                <div className="">
+                  <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
+                    {f.postedBy.username[0].toUpperCase()}
                   </div>
+                  <p className="absolute font-bold left-12 top-4 mb-4 text-[#1A8CD8]">
+                    {f.postedBy.username}
+                  </p>
 
-                  <div className="absolute top-20 left-4 text-white font-bold ">
+                  <p className="absolute top-20 left-4 text-white font-bold mb-8 mt-4 ">
                     {f.text}
-                  </div>
+                  </p>
                 </div>
-              )}
+              </div>
             </div>
           );
         })}

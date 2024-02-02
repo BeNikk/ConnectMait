@@ -8,6 +8,7 @@ import SearchPage from "./components/SearchPage";
 import Notifications from "./components/Notifications";
 import ProfilePage from "./components/ProfilePage";
 import OtherProfile from "./components/OtherProfile";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               path="/otherProfile/:otherUserName"
               element={<OtherProfile />}
             />
+            <Route path="/editProfile" element={<EditProfile />} />
           </Routes>
         </Router>
         sss

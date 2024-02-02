@@ -10,6 +10,7 @@ export default function SearchPage() {
   const [UserName, setUserName] = useState("");
   const [user, setUser] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
+  const [about, setAbout] = useState(null);
   return (
     <>
       <Topbar />
@@ -19,7 +20,7 @@ export default function SearchPage() {
       <div className="flex flex-row justify-center relative">
         <div className="absolute bg-[#101117] w-[70vw] h-[35vh] top-24 lg:top-32 lg:w-[40vw] lg:h-[35vh]">
           <div className="relative ">
-            <p className="absolute top-2 left-72 text-white font-bold">
+            <p className="absolute top-2 left-[40%] text-white font-bold">
               Search
             </p>
             <div
@@ -41,6 +42,7 @@ export default function SearchPage() {
                   .then((resp) => {
                     setUser(resp.data.username);
                     setUserEmail(resp.data.email);
+                    setAbout(resp.data.about);
                   });
               }}
             >
@@ -67,7 +69,9 @@ export default function SearchPage() {
                 <div className="absolute left-4 font-bold text-white top-32 lg:top-44">
                   About
                 </div>
-                <div className="absolute left-20 top-32 lg:top-44 font-bold text-white"></div>
+                <div className="absolute left-20 top-32 lg:top-44 font-bold text-white">
+                  {about}
+                </div>
               </div>
             </div>
           </div>

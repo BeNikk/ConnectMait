@@ -62,7 +62,7 @@ export default function Comments() {
             key={feed._id}
           >
             {feed && (
-              <div>
+              <div className="">
                 <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
                   {feed.userId.username[0].toUpperCase()}
                 </div>

@@ -10,7 +10,7 @@ export default async function getOtherUser(req:Request,res:Response){
             res.json({message:"user not found"});
         }
         else{
-            res.json({username:user.username,email:user.email});
+            res.json({username:user.username,email:user.email,about:user.about});
 
         }
 
