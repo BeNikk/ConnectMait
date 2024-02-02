@@ -120,7 +120,7 @@ export default function Comments() {
                   )
                   .then(() => {
                     alert("comment added");
-                    window.location.reload();
+                    
 
                   })
                   .catch((e) => {
