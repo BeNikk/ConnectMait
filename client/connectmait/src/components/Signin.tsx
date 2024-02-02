@@ -21,7 +21,7 @@ export default function Signup() {
     const data = schema.parse(postData);
 
     try {
-      const response = await axios.post("https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/signin", data);
+      const response = await axios.post("https://connect-mait.vercel.app/signin", data);
       if (response && response.data) {
         localStorage.setItem("token", response.data.token);
         console.log(response.data);
