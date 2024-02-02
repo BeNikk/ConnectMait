@@ -3,7 +3,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { ChangeEvent, useState } from "react";
 import axios from "axios";
 import PostFeed from "./PostFeed";
-import { useNavigate } from "react-router-dom";
 
 interface LightboxProps {
   image: string;
