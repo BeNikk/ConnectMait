@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import LeftSidebar from "./LeftSidebar";
@@ -26,6 +26,7 @@ interface Post {
 }
 
 export default function Comments() {
+  const navigate=useNavigate();
   const { id } = useParams();
   const [feed, setFeed] = useState<Post>();
   const [comment, setComment] = useState("");
@@ -119,6 +120,7 @@ export default function Comments() {
                   )
                   .then(() => {
                     alert("comment added");
+                    navigate('/');
                     
 
                   })
