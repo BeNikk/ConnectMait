@@ -13,7 +13,7 @@ export default function OtherProfile() {
 
   useEffect(() => {
     axios
-      .get(`https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/otherProfile/${otherUserName}`)
+      .get(`https://connect-mait.vercel.app/otherProfile/${otherUserName}`)
       .then((resp) => {
         setUserName(resp.data.username);
         setEmail(resp.data.email);
