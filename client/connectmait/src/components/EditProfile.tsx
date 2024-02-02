@@ -68,7 +68,7 @@ export default function EditProfile() {
               onClick={() => {
                 axios
                   .put(
-                    "https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/editProfile",
+                    "https://connect-mait.vercel.app/editProfile",
                     { username, email, about },
                     {
                       headers: {
