@@ -62,7 +62,7 @@ export default function PostFeed() {
                     ? "min-h-[50rem] lg:min-h-[40rem]"
                     : "min-h-50 lg:min-h-40"
                 }`}
-              >{f.userId && <div>
+              >{f.userId.username && <div>
                 <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
                   {f.userId.username[0].toUpperCase()}
                 </div>
