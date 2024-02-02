@@ -9,18 +9,21 @@ import multer from 'multer';
 import getComments from "../controllers/getComments";
 import getOtherUser from "../controllers/getOtherUser";
 
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+import { v2 as cloudinary } from 'cloudinary';
 
-const storage = multer.diskStorage({
-    destination:(req,res,cb)=>{
-      cb(null,'./temp')
+
+
+ const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    
+      folder: 'maitconnect', // Adjust the format as needed
+    } as any,
+
   
-    },
-    filename: (req, file, callback) => {
-
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-      callback(null, file.fieldname + '-' + uniqueSuffix+file.originalname);
-    },
-  });
+      },
+);
 const upload = multer({ storage: storage });
 const router=express.Router();
 

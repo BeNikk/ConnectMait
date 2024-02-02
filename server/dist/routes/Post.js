@@ -13,13 +13,12 @@ const getPostById_1 = __importDefault(require("../controllers/getPostById"));
 const multer_1 = __importDefault(require("multer"));
 const getComments_1 = __importDefault(require("../controllers/getComments"));
 const getOtherUser_1 = __importDefault(require("../controllers/getOtherUser"));
-const storage = multer_1.default.diskStorage({
-    destination: (req, res, cb) => {
-        cb(null, './temp');
-    },
-    filename: (req, file, callback) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-        callback(null, file.fieldname + '-' + uniqueSuffix + file.originalname);
+const multer_storage_cloudinary_1 = require("multer-storage-cloudinary");
+const cloudinary_1 = require("cloudinary");
+const storage = new multer_storage_cloudinary_1.CloudinaryStorage({
+    cloudinary: cloudinary_1.v2,
+    params: {
+        folder: 'maitconnect', // Adjust the format as needed
     },
 });
 const upload = (0, multer_1.default)({ storage: storage });
