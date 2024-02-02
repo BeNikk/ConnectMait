@@ -97,7 +97,7 @@ export default function Comments() {
           }}
         >
           <Textarea
-            className="bg-[#101117] ml-[25&] lg:ml-[10%] text-white h-[40%] w-[40%] lg:w-[80%]"
+            className="bg-[#101117] ml-[25%] lg:ml-[10%] text-white h-[40%] w-[40%] lg:w-[80%]"
             placeholder="Write"
           />
           <Button
