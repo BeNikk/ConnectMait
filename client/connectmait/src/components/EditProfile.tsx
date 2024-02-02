@@ -82,6 +82,7 @@ export default function EditProfile() {
                   })
                   .catch((e) => {
                     alert("error updating profile");
+                    console.log(e);
                   });
               }}
             >

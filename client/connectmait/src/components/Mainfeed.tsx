@@ -3,6 +3,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ChangeEvent, useState } from "react";
 import axios from "axios";
 import PostFeed from "./PostFeed";
+import { useNavigate } from "react-router-dom";
 
 interface LightboxProps {
   image: string;
@@ -90,6 +91,10 @@ export default function Mainfeed() {
                 if (selectedImage) {
                   formData.append("image", selectedImage);
                 }
+                if (!localStorage.getItem("token")) {
+                  alert("signup or signin to post");
+                  setPosts("");
+                }
                 if (postContent == "" && selectedImage == null) {
                   alert("add content");
                 } else {
@@ -101,9 +106,15 @@ export default function Mainfeed() {
                       },
                     })
                     .then(() => {
-                      alert("post added");
-                      setPosts("");
-                      setSelectedImage(null);
+                      if (
+                        localStorage.getItem("token") &&
+                        (postContent || selectedImage)
+                      ) {
+                        alert("post added");
+                        setPosts("");
+                        setSelectedImage(null);
+                        window.location.reload();
+                      }
                     })
                     .catch((e) => {
                       console.log("some error occured", e);

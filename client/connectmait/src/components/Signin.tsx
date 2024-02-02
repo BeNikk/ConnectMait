@@ -97,7 +97,7 @@ export default function Signup() {
               className="bg-black text-white"
               onClick={loginAccount}
             >
-              Create Account
+              Login to your account
             </Button>
           </div>
           <p className="text-[#656565] font-sm mt-4 ml-4">
