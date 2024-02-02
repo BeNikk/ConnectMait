@@ -99,7 +99,7 @@ export default function Mainfeed() {
                   alert("add content");
                 } else {
                   axios
-                    .post("http://localhost:3000/addPost", formData, {
+                    .post("https://connect-mait-nikhils-projects-a5ecaa21.vercel.app/addPost", formData, {
                       headers: {
                         Authorization: localStorage.getItem("token"),
                         "Content-Type": "multipart/form-data",
