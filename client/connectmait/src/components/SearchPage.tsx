@@ -83,7 +83,7 @@ export default function SearchPage() {
         <div className="flex flex-row justify-center relative">
           <div className="absolute bg-[#101117] w-[70vw] h-[10vh] top-80 lg:top-80 lg:w-[40vw] lg:h-[10vh]">
             <div className="relative ">
-              <div className=" absolute left-32 lg:left-64 font-bold text-white">
+              <div className=" absolute left-16 lg:left-64 font-bold text-white">
                 User not found
               </div>
             </div>
