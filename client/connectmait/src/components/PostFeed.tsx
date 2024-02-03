@@ -62,27 +62,31 @@ export default function PostFeed() {
                     ? "min-h-[50rem] lg:min-h-[40rem]"
                     : "min-h-50 lg:min-h-40"
                 }`}
-              >{f.userId.username && <div>
-                <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
-                  {f.userId.username[0].toUpperCase()}
-                </div>
-                <p
-                  className="absolute font-bold left-12 top-4 mb-4 text-[#1A8CD8] cursor-pointer"
-                  onClick={() => {
-                    navigate(`/otherProfile/${f.userId.username}`);
-                  }}
-                >
-                  {f.userId.username}
-                </p>
+              >
+                {f.userId.username && (
+                  <div>
+                    <div className="absolute w-8 h-8 left-2 top-2 rounded-full bg-[#1A8CD8] text-white flex items-center justify-center">
+                      {f.userId.username[0].toUpperCase()}
+                    </div>
+                    <p
+                      className="absolute font-bold left-12 top-4 mb-4 text-[#1A8CD8] cursor-pointer"
+                      onClick={() => {
+                        navigate(`/otherProfile/${f.userId.username}`);
+                      }}
+                    >
+                      {f.userId.username}
+                    </p>
 
-                <p className="overflow-truncate absolute left-4 top-12 text-white mb-8">
-                  {f.postContent}{" "}
-                </p></div>}
+                    <p className="overflow-truncate absolute left-4 top-12 text-white mb-8">
+                      {f.postContent}{" "}
+                    </p>
+                  </div>
+                )}
                 {f.image && (
                   <img
                     src={f.image}
                     alt=""
-                    className="absolute left-16 top-24 object-cover w-3/4 h-3/4"
+                    className="absolute left-12 top-24 object-cover w-3/4 h-3/4"
                     onClick={() => {
                       setLightboxImage(f.image);
                     }}
