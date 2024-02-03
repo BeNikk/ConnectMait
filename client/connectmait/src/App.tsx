@@ -9,8 +9,11 @@ import Notifications from "./components/Notifications";
 import ProfilePage from "./components/ProfilePage";
 import OtherProfile from "./components/OtherProfile";
 import EditProfile from "./components/EditProfile";
+import { inject } from "@vercel/analytics";
 
 function App() {
+  inject();
+
   return (
     <>
       <RecoilRoot>
