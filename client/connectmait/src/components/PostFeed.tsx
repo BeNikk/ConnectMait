@@ -53,7 +53,7 @@ export default function PostFeed() {
           return (
             <>
               <div
-                className={`relative flex flex-col ml-[2vw] mt-14 mb-12 bg-[#101117] rounded-lg w-[100vw] lg:w-[40vw] lg:ml-[30vw]  ${
+                className={`relative flex flex-col  mt-14 mb-12 bg-[#101117] rounded-lg w-[100vw] lg:w-[40vw] lg:ml-[30vw]  ${
                   f.image
                     ? "min-h-[40rem] lg:min-h-[40rem]"
                     : "min-h-40 lg:min-h-40"
@@ -86,7 +86,7 @@ export default function PostFeed() {
                   <img
                     src={f.image}
                     alt=""
-                    className="absolute left-8 top-24 object-cover w-3/4 h-3/4"
+                    className="absolute left-8 lg:left-12 top-24 object-cover w-3/4 h-3/4"
                     onClick={() => {
                       setLightboxImage(f.image);
                     }}
