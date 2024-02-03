@@ -37,18 +37,21 @@ export default function ProfilePage() {
                   {userName[0].toUpperCase()}
                 </div>
               </div>
+
               <div className="absolute left-24 top-6 font-bold text-white">
                 {userName}
               </div>
               <div className="absolute left-4 font-bold text-white top-24 lg:top-32">
                 Email
               </div>
+              <br />
               <div className="absolute left-20 top-24 lg:top-32 font-bold text-white">
                 {email}
               </div>
               <div className="absolute left-4 font-bold text-white top-32 lg:top-44">
                 About
               </div>
+              <br />
               <div className="absolute left-20 top-32 lg:top-44 font-bold text-white">
                 {about}
               </div>
