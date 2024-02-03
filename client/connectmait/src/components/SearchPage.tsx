@@ -53,24 +53,27 @@ export default function SearchPage() {
           </div>
         </div>
         {user && (
-          <div className="flex flex-row justify-center relative">
+          <div className="flex flex-col justify-center relative">
             <div className="absolute bg-[#101117] w-[70vw] h-[40vh] top-80 lg:top-80 lg:w-[40vw] lg:h-[50vh]">
               <div className="relative ">
                 <div className="bg-[#1A8CD8] text-center flex items-center justify-center rounded-full w-16 h-16 absolute left-2 top-2 lg:left-4">
                   <div className="font-bold text-white"></div>
                 </div>
+                <br />
                 <div className="absolute left-12 lg:left-24 top-6 font-bold text-white">
                   {user}
                 </div>
                 <div className="absolute left-4 font-bold text-white top-24 lg:top-32">
                   Email
                 </div>
+                <br />
                 <div className="absolute left-12 lg:left-20 top-24 lg:top-32 font-bold text-white">
                   {userEmail}
                 </div>
                 <div className="absolute left-4 font-bold text-white top-32 lg:top-44">
                   About
                 </div>
+                <br />
                 <div className="absolute left-12 lg:left-20 top-32 lg:top-44 font-bold text-white">
                   {about}
                 </div>
@@ -81,9 +84,9 @@ export default function SearchPage() {
       </div>
       {!user && (
         <div className="flex flex-row justify-center relative">
-          <div className="absolute bg-[#101117] w-[70vw] h-[10vh] top-80 lg:top-80 lg:w-[40vw] lg:h-[10vh]">
+          <div className="absolute bg-[#101117] w-[90vw] h-[10vh] top-80 lg:top-80 lg:w-[40vw] lg:h-[10vh]">
             <div className="relative ">
-              <div className=" absolute left-16 lg:left-64 font-bold text-white">
+              <div className=" absolute left-8 lg:left-64 font-bold text-white">
                 User not found
               </div>
             </div>
