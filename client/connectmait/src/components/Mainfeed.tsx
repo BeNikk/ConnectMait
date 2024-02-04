@@ -43,7 +43,7 @@ export default function Mainfeed() {
             Write your mind
           </p>
           <div
-            className="object-contain overflow-hidden mt-4 mr-[5%] w-[450px]"
+            className="object-contain overflow-hidden mt-4 lg:mr-[5%] w-[450px]"
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setPosts(e.target.value);
             }}
