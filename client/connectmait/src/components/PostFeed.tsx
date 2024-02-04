@@ -53,7 +53,7 @@ export default function PostFeed() {
           return (
             <>
               <div
-                className={`relative flex flex-col  mt-14 mb-12 bg-[#101117] rounded-lg w-[99vw] lg:w-[40vw] lg:ml-[30vw]  ${
+                className={`relative flex flex-col  mt-14 mb-12 bg-black rounded-lg ml-[3%] w-[95%] lg:w-[40vw] lg:ml-[30vw]  ${
                   f.image
                     ? "min-h-[40rem] lg:min-h-[40rem]"
                     : "min-h-40 lg:min-h-40"

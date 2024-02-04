@@ -34,7 +34,7 @@ export default function Mainfeed() {
   return (
     <>
       <div className="flex flex-col items-center">
-        <div className="relative flex flex-col items-center w-[80vw] bg-[#101117]   hover:rounded-lg hover:border hover:border-white mt-4 ml-[10vw] min-h-[200px] lg:w-[40vw] lg:ml-[30vw]">
+        <div className="relative flex flex-col items-center w-[80vw] bg-black   hover:rounded-lg hover:border hover:border-white mt-4 ml-[4vw] min-h-[200px] lg:w-[40vw] lg:ml-[30vw]">
           <p className="font-bold mt-2 text-lg text-white lg:hidden">
             Welcome to Mait connect!
           </p>
@@ -49,7 +49,7 @@ export default function Mainfeed() {
             }}
           >
             <Textarea
-              className="bg-[#101117] ml-[25%] lg:ml-[10%] text-white max-h-[40%] w-[40%] lg:w-[80%]"
+              className="bg-[#101117] ml-[30%] lg:ml-[10%] text-white h-[20%] w-[40%] lg:w-[80%]"
               placeholder="Write"
             />
             <div className="mt-4">
@@ -107,7 +107,9 @@ export default function Mainfeed() {
                     .then(() => {
                       if (
                         localStorage.getItem("token") &&
-                        (postContent || selectedImage)
+                        (postContent ||
+                          selectedImage ||
+                          (postContent && selectedImage))
                       ) {
                         alert("post added");
                         setPosts("");
