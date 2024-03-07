@@ -3,7 +3,7 @@ import { postModel } from "../models/UserPost";
 
 export default async function getPost(req:Request,res:Response){
     try{
-        const allposts=await postModel.find({}).sort({ createdAt: -1 }).populate('userId').limit(100);
+        const allposts=await postModel.find({}).sort({ createdAt: -1 }).populate('userId');
     res.json(allposts)
 
     }catch(error){
